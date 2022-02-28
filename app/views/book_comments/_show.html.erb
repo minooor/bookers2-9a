@@ -11,6 +11,8 @@
     </td>
 
     <td>コメント数: <%= book.book_comments.count %></td>
+    
+    <td>閲覧数: <%= book.impressions_count %></td>
 
       <td>
         <% if book.user == current_user %>

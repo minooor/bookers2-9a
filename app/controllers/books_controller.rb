@@ -13,6 +13,7 @@ before_action :authenticate_user!
     @book = Book.new
     @books = Book.all
     @user = current_user
+    @books = Book.includes(:favorites).sort {|a,b| b.favorites.where(created_at: Time.current.all_week).size <=> a.favorites.where(created_at: Time.current.all_week).size}
   end
 
   def create
